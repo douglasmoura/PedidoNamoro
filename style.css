@@ -1,0 +1,119 @@
+
+
+html, body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(53, 2, 81);
+    overflow: hidden;
+}
+
+.painel{
+        margin: 12rem auto;
+        background-color: white;
+        width: 500px;
+        height: 500px;
+        border-radius: 20px;
+        text-align: center;
+        padding-top: 50px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    .sim{
+        height: 40px;
+        width: 60px;
+        background-color:rgb(166, 0, 255);
+        border: 2px solid white;
+        border-radius: 10px;
+        color: white;
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        margin-left: -70px;
+    }
+
+    .sim::after {
+        content: "";
+        z-index: -1;
+        position: absolute;
+        background-color:rgb(166, 0, 255);
+        border-radius: 10px;
+    }
+
+    .sim::before {
+        content: "";
+        background: linear-gradient(
+        45deg,
+        #ae00ff, #ff00c3, #ff0040, #8339b4,
+        #6200ff, #ff002b, #FF00C8, #FF0000
+        );
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        background-size: 600%;
+        z-index: -1;
+        width: calc(100% + 4px);
+        height:  calc(100% + 4px);
+        filter: blur(8px);
+        animation: glowing 20s linear infinite;
+        transition: opacity .3s ease-in-out;
+        border-radius: 10px;
+        opacity: 0;
+        
+    }
+
+    @keyframes glowing {
+        0% {background-position: 0 0;}
+        50% {background-position: 400% 0;}
+        100% {background-position: 0 0;}
+    }
+
+    .sim:hover::before {
+        opacity: 1;
+    }
+    
+    #nao{
+        position: absolute;
+        height: 40px;
+        width: 60px;
+        background-color:rgb(166, 0, 255);
+        border: 2px solid white;
+        border-radius: 10px;
+        color: white;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+    span{
+        position: absolute;
+        pointer-events: none;
+        filter: drop-shadow(0 0 15px rgb(53, 2, 81));
+        animation: fadeInOut 1s linear infinite;
+    }
+
+    @keyframes fadeInOut {
+        0%,100%{
+            opacity: 0;
+        }
+        20%,80%{
+            opacity: 1;
+        }
+    }
+    span::before {
+        content: '';
+        position: absolute;
+        width: 100px;   
+        height: 100px;  
+        background: url(icons/heart.png);
+        background-size: cover;
+        animation: moveShape 1s linear infinite;
+
+    }
+
+    @keyframes moveShape{
+        0%{
+            transform: translate(0) rotate(0deg);
+        }
+
+        100%{
+            transform: translate(300px) rotate(360deg);
+        }
+    }
